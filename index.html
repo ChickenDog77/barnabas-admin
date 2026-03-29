@@ -264,7 +264,7 @@ function populateReportFilter(){
   const sel=document.getElementById('reportFilter');
   const existing=sel.value;
   sel.innerHTML='<option value="">All Churches</option>';
-  const churches=[...new Set(allReports.map(r=>(r.churches as any)?.name).filter(Boolean))];
+  const churches=[...new Set(allReports.map(r=>r.churches?.name).filter(Boolean))];
   churches.sort().forEach(n=>sel.innerHTML+=`<option value="${esc(n)}">${esc(n)}</option>`);
   sel.value=existing;
 }
